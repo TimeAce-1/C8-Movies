@@ -15,9 +15,12 @@ public class MovieListAL
     /**
      * Constructor for objects of class MovieListsAL
      */
-    public MovieListAL(Movie[] movies)
+    public MovieListAL(Movie[] movieList)
     {
-
+        for (int i = 0; i<movieList.length; i++)
+        {
+            pool.add(movieList[i]);
+        }
     }
 
     public ArrayList<Movie> getPool()
@@ -30,10 +33,14 @@ public class MovieListAL
      * by that studio
      */
     public ArrayList<Movie> getByStudio(String studio)
-    {
-        return null;
+    { ArrayList<Movie> getByStudio = new ArrayList<Movie>();
+        for (int i = 0; i<pool.size(); i++)
+        {
+            if (pool.get(i).getStudio().equals(studio))
+                getByStudio.add(pool.get(i));
     }
-    
+    return null;
+}
     
     /** 
      * get the movie with the highest rating within an ArrayList
