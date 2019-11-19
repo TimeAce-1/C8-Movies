@@ -10,16 +10,16 @@ import java.util.ArrayList;
 public class MovieListAL
 {
     // instance variables - replace the example below with your own
-    private ArrayList<Movie> pool;
+    private ArrayList<Movie> pool = new ArrayList<Movie>();
 
     /**
      * Constructor for objects of class MovieListsAL
      */
-    public MovieListAL(Movie[] movieList)
+    public MovieListAL(Movie[] movies)
     {
-        for (int i = 0; i<movieList.length; i++)
+        for (int i = 0; i<movies.length; i++)
         {
-            pool.add(movieList[i]);
+            pool.add(movies[i]);
         }
     }
 
@@ -39,7 +39,7 @@ public class MovieListAL
             if (pool.get(i).getStudio().equals(studio))
                 getByStudio.add(pool.get(i));
     }
-    return null;
+    return getByStudio;
 }
     
     /** 
@@ -47,10 +47,18 @@ public class MovieListAL
      */
     public Movie getHighestrating(ArrayList<Movie> movies)
     {
-
+        Movie getHighestrating = movies.get(0);
+        double high = 0;
+        for (int i = 0; i<movies.size(); i++)
+        {
+            
+            if (movies.get(i).getRating() > high)
+                {high = movies.get(i).getRating();
+                getHighestrating = movies.get(i);
+            }
+            }
         
-        return null;
-        
+        return getHighestrating;
     }
     
     
@@ -64,9 +72,14 @@ public class MovieListAL
         ArrayList<Movie> highestRated = new ArrayList<Movie>();
         
         // Your code goes here
-         return null;
+        Movie Disney = getHighestrating(getByStudio("Disney"));
+        Movie Indie = getHighestrating(getByStudio("Indy"));
+        Movie Ghibli = getHighestrating(getByStudio("Ghibli"));
+        highestRated.add(Disney);
+        highestRated.add(Indie);
+        highestRated.add(Ghibli);
         // return highestRated;
-        
+        return highestRated;
     }
 
 }
