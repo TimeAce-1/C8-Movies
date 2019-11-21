@@ -34,10 +34,10 @@ public class MovieListAL
      */
     public ArrayList<Movie> getByStudio(String studio)
     { ArrayList<Movie> getByStudio = new ArrayList<Movie>();
-        for (int i = 0; i<pool.size(); i++)
+        for (Movie m : pool)
         {
-            if (pool.get(i).getStudio().equals(studio))
-                getByStudio.add(pool.get(i));
+            if (m.getStudio().equals(studio))
+                getByStudio.add(m);
     }
     return getByStudio;
 }
@@ -49,12 +49,12 @@ public class MovieListAL
     {
         Movie getHighestrating = movies.get(0);
         double high = 0;
-        for (int i = 0; i<movies.size(); i++)
+        for (Movie n : movies)
         {
             
-            if (movies.get(i).getRating() > high)
-                {high = movies.get(i).getRating();
-                getHighestrating = movies.get(i);
+            if (n.getRating() > high)
+                {high = n.getRating();
+                getHighestrating = n;
             }
             }
         
